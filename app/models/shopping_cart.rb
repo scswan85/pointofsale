@@ -45,6 +45,4 @@ class ShoppingCart
     order.sub_total = order.items.sum('quantity*price')
     order.save
   end
-
-  
 end
