@@ -2,24 +2,20 @@
 
 <h1>Open Orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <ul>
-    <% @orders.each do |order| %>
-      <li>Order #<%= order.id %> Table (<%= order.table %>) Created <%= distance_of_time_in_words(order.updated_at, Time.now) %> ago</li>
-        <% order.items.each do |item| %>
-          <ul>
-            <li><%= item.product.title %></li>          
-          </ul>
-        <% end %>
-       <%=link_to 'Order Up!', ready_order_path(order), method: :put  %>
-    <% end %>
-  </ul>
-</table>
+  <% @orders.each do |order| %>
+    <div class="card" style="width: 28rem;">
+      <div class="card-header">
+        Order #<%= order.id %> Table (<%= order.table %>) 
+        Created <%= distance_of_time_in_words(order.updated_at, Time.now) %> ago
+      </div>
+          <% order.items.each do |item| %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= item.product.title %></li>          
+        </ul>
+          <% end %>
+        <%=link_to 'Order Up!', ready_order_path(order), class: "btn btn-success", method: :put  %>
+    </div>
+    <br>
+  <% end %>
 
 
