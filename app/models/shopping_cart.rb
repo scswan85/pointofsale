@@ -1,6 +1,8 @@
 class ShoppingCart
 
   delegate :sub_total, to: :order
+  delegate :tax, to: :order
+  delegate :total, to: :order
   
   def initialize(token:)
     @token = token
@@ -32,21 +34,20 @@ class ShoppingCart
 
     ActiveRecord::Base.transaction do
       order_item.save
-      update_sub_total!
+      update_totals!
     end
   end
 
   def remove_item(id:)
     ActiveRecord::Base.transaction do
       order.items.destroy(id)
-      update_sub_total!
+      update_totals!
     end
   end
 
   private
 
-  def update_sub_total!
+  def update_totals!
     order.sub_total = order.items.sum('quantity*price')
-    order.save
   end
 end
