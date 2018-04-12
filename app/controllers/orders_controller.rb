@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
     @order = current_cart.order
   end
 
+  def show
+    @order = Order.find_by_id(params[:id])
+  end
+
   def create
     @order = current_cart.order
 
@@ -24,6 +28,11 @@ class OrdersController < ApplicationController
     @order = Order.find_by_id(params[:id])
     @order.update_attributes(status: :payment)
     redirect_to open_orders_path
+  end
+
+  def payment
+    @orders = Order.where(status: :payment)
+    render action: :payment
   end
 
   private

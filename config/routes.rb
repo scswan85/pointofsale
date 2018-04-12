@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       get :open
     end
 
+    collection do
+      get :payment
+    end
+
     member do
       put :ready
     end

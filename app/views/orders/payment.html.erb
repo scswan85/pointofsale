@@ -1,0 +1,9 @@
+<h1>Ready for payment</h1>
+
+<ul>
+    <% @orders.each do |order| %>
+    <li>
+      <%= order.id %> Table(<%= order.table %>) - <%= number_to_currency order.sub_total %> <%= link_to 'Submit Payment', order %>
+    </li>
+    <% end %>
+</ul>
