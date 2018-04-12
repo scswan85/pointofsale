@@ -51,3 +51,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'better_errors', '~> 2.4'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'bootstrap', '~> 4.0'
+gem 'jquery-rails'
