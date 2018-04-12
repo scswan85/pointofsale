@@ -11,7 +11,7 @@
 
   <ul>
     <% @orders.each do |order| %>
-      <li>Order #<%= order.id %> Table (<%= order.table %>)</li>
+      <li>Order #<%= order.id %> Table (<%= order.table %>) Created <%= distance_of_time_in_words(order.created_at, Time.now) %> ago</li>
         <% order.items.each do |item| %>
           <ul>
             <li><%= item.product.title %></li>          
