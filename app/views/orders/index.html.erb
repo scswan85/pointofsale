@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orders</h1>
+<h1>Open Orders</h1>
 
 <table>
   <thead>
@@ -9,17 +9,17 @@
     </tr>
   </thead>
 
-  <tbody>
+  <ul>
     <% @orders.each do |order| %>
-      <tr>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Cancel', cancel_orders_path, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li>Order #<%= order.id %> Table (<%= order.table %>)</li>
+        <% order.items.each do |item| %>
+          <ul>
+            <li><%= item.product.title %></li>          
+          </ul>
+        <% end %>
+       <%=link_to 'Order Up!', ready_order_path(order), method: :put  %>
     <% end %>
-  </tbody>
+  </ul>
 </table>
 
-<br>
 
-<%= link_to 'New Order', new_order_path %>
