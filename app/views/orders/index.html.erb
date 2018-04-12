@@ -6,13 +6,12 @@ setInterval(function(){
 </script>
 
 <h1>Open Orders</h1>
-
-  <% @orders.each do |order| %>
+<div class="row">  <% @orders.each do |order| %>
     <div class="col-md-6">
-      <div class="card" style="width: 28rem;">
+      <div class="card" style="width: 22rem;">
         <div class="card-header">
           Order #<%= order.id %> Table (<%= order.table %>) 
-          Created <%= distance_of_time_in_words(order.updated_at, Time.now) %> ago
+          <%= distance_of_time_in_words(order.updated_at, Time.now) %> ago
         </div>
             <% order.items.each do |item| %>
           <ul class="list-group list-group-flush">
@@ -22,7 +21,8 @@ setInterval(function(){
           <%=link_to 'Order Up!', ready_order_path(order), class: "btn btn-success", method: :put  %>
       </div>
     </div>
-    <br>
   <% end %>
+  <br>
+</div>
 
 
