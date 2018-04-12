@@ -11,6 +11,8 @@ class ShoppingCart
   def order
     @order ||= Order.find_or_create_by(token: @token, status: 'cart') do |order|
       order.sub_total = 0
+      order.tax = 0
+      order.total = 0
     end
   end
 
@@ -49,5 +51,8 @@ class ShoppingCart
 
   def update_totals!
     order.sub_total = order.items.sum('quantity*price')
+    order.tax = order.items.sum('(quantity*price)*0.06')
+    order.total = order.items.sum('(quantity*price)*1.06')
+    order.save
   end
 end

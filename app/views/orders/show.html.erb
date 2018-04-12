@@ -2,5 +2,5 @@
 <h1>Payment Screen</h1>
 <h2>Order <%= @order.id %> Table <%= @order.table %></h2>
 <h2>Subtotal <%= number_to_currency @order.sub_total %></h2>
-<h2>Tax <%= number_to_currency @order.sub_total*0.06 %></h2>
-<h2>Total <%= number_to_currency @order.sub_total*1.06 %></h2>
+<h2>Tax <%= number_to_currency @order.tax %></h2>
+<h2>Total <%= number_to_currency @order.total %></h2>
