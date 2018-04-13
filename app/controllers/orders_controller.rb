@@ -13,10 +13,14 @@ class OrdersController < ApplicationController
 
     if @order.update_attributes(order_params.merge(status: :open))
       session[:cart_token] = nil
-      redirect_to root_path
+      respond_to do |format|
+       format.html { redirect_to root_path, notice: 'Order successfully submitted' } 
+      end
     else
       render :new
     end
+
+
   end
 
   def open
