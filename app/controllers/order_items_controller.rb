@@ -10,7 +10,9 @@ class OrderItemsController < ApplicationController
       quantity: params[:quantity]
     )
 
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Shopping cart successfully updated' }
+    end
   end
 
   def destroy

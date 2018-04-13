@@ -1,13 +1,16 @@
 <h2>Checkout</h2>
 
-<%= form_for @order, url: checkout_path do |f| %>
 
-  <div class="form-group"> 
-    <%= f.label :table %>
-    <%= f.text_field :table %>
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <%= form_for @order, url: checkout_path do |f| %>
+    <div class="form-group"> 
+      <%= f.label :table %>
+      <%= f.text_field :table, class: "form-control" %>
+      <%= f.submit 'Submit Order', class: "btn btn-success" %>
+    <% end %>
+    </div>
   </div>
+  <div class="col-md-4"></div>
 
-  <%= f.submit 'Submit Order' %>
-
-<% end %>
 

@@ -1,10 +1,10 @@
 <h2>Current Cart</h2>
 
-<table>
+<table class="table">
   <tr>
-    <td>Product</td>
-    <td>Price</td>
-    <td>Quantity</td>
+    <td scope="col">Product</td>
+    <td scope="col">Price</td>
+    <td scope="col">Quantity</td>
   </tr>
   <tbody>
     <% @items.each do |item| %>
@@ -14,7 +14,7 @@
         <td><%= item.quantity %></td>
         <td>
           <%= form_for item, method: :delete do |f| %>
-            <%= f.submit "Remove" %>
+            <%= f.submit "Remove", class: "btn btn-danger" %>
           <% end %>
         </td>
       </tr>
@@ -28,4 +28,4 @@
   </tfoot>
 </table>
 
-<%= link_to 'Checkout', checkout_path %>
+<%= link_to 'Checkout', checkout_path, class: "btn btn-success" %>
