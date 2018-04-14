@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
+
 <script>
 setInterval(function(){
   Turbolinks.visit() 
     }, 5000)
 </script>
-
 <h1>Open Orders</h1>
 <div class="row">  <% @orders.each do |order| %>
     <div class="col-md-6">

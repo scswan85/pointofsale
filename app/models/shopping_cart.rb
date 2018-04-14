@@ -3,6 +3,7 @@ class ShoppingCart
   delegate :sub_total, to: :order
   delegate :tax, to: :order
   delegate :total, to: :order
+  delegate :total, to: :charge
   
   def initialize(token:)
     @token = token

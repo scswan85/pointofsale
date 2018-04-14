@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
+  devise_for :users
   root to: 'products#index'
   resources :products
   resources :categories
+  resources :charges
 
   resources :orders do
     collection do
@@ -15,6 +16,10 @@ Rails.application.routes.draw do
 
     member do
       put :ready
+    end
+
+    member do
+      put :complete
     end
   end
 

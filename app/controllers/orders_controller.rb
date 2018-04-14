@@ -34,10 +34,17 @@ class OrdersController < ApplicationController
     redirect_to open_orders_path
   end
 
+  def complete
+    @order = Order.find_by_id(params[:id])
+    @order.update_attributes(status: :complete)
+    redirect_to payment_orders_path
+  end
+
   def payment
     @orders = Order.where(status: :payment)
     render action: :payment
   end
+
 
   private
 
