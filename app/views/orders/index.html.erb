@@ -9,10 +9,16 @@ setInterval(function(){
 <div class="row">  <% @orders.each do |order| %>
     <div class="col-md-6">
       <div class="card" style="width: 22rem;">
-        <div class="card-header">
-          Order #<%= order.id %> Table (<%= order.table %>) 
-          <%= distance_of_time_in_words(order.updated_at, Time.now) %> ago
-          <%= link_to (fa_icon "times-circle"), cancel_order_path(order), data: { confirm: "Are you sure you want to CANCEL the order?" } ,method: :put, class:'text-danger' %>
+        <div class="card-header navbar">
+          <div class="float-left">
+            <h6>
+              Order #<%= order.id %> Table (<%= order.table %>) 
+              <%= distance_of_time_in_words(order.updated_at, Time.now) %> ago  
+            </h6>
+          </div>
+          <div class="float-right">
+              <%= link_to (fa_icon "times-circle"), cancel_order_path(order), data: { confirm: "Are you sure you want to CANCEL the order?" } ,method: :put, class:'text-danger' %>
+          </div>
         </div>
             <% order.items.each do |item| %>
           <ul class="list-group list-group-flush">

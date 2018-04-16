@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
     @order = Order.find_by_id(params[:id])
     @order.update_attributes(status: :cancelled)
     respond_to do |format|
-      format.html { redirect_to root_path, notice:'Order cancelled'}
+      format.html { redirect_to open_orders_path, notice:'Order cancelled'}
     end
   end
 
