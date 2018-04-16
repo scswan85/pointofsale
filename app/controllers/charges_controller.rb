@@ -4,8 +4,9 @@ class ChargesController < ApplicationController
 
   def create
   # Amount in cents
-    @order= Order.find_by_id(params[:id])
-    @amount = 500
+    @order= Order.find(params[:order_id])
+    @amount = (@order.total*100).to_int.to_s
+    @order.update_attributes(status: :complete)
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
@@ -18,11 +19,12 @@ class ChargesController < ApplicationController
     :description => 'Restaurant customer',
     :currency    => 'usd'
   )
- # redirect_to complete_order_path
-
+  
+  respond_to do |format|
+    format.html { redirect_to payment_orders_path, notice: 'Payment successful'}
+  end
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
   end
-  
 end

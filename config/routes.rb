@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root to: 'products#index'
   resources :products
   resources :categories
-  resources :charges
 
   resources :orders do
+    resources :charges
+  
     collection do
       get :open
     end
@@ -21,8 +22,9 @@ Rails.application.routes.draw do
     member do
       put :complete
     end
-  end
 
+  end
+  
 
   
   get  '/cart', to: 'order_items#index'

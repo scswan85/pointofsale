@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  access all: [], user: {except: [:edit, :destroy]}, site_admin: :all
+
 
   # GET /categories
   # GET /categories.json
