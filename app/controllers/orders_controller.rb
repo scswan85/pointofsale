@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  access all: {except: [:ready, :complete]}, user: :all, site_admin: :all
 
   def new
     @order = current_cart.order

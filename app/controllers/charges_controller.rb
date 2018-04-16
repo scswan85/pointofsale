@@ -17,7 +17,8 @@ class ChargesController < ApplicationController
     :customer    => customer.id,
     :amount      => @amount,
     :description => 'Restaurant customer',
-    :currency    => 'usd'
+    :currency    => 'usd',
+    :receipt_email => params[:stripeEmail]
   )
   
   respond_to do |format|
