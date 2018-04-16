@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by_id(params[:id])
+    redirect_to payment_orders_path unless @order.status == "payment"
   end
 
   def create

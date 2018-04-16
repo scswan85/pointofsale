@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :orders do
-    resources :charges
   
     collection do
       get :open
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
 
     member do
       put :complete
+      resources :charges
     end
 
   end

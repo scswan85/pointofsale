@@ -1,0 +1,18 @@
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<%= render 'shared/nav' %>
+<h1>Order Complete!</h1>
+<h2>Order <%= @order.id %></h2>
+<ul>
+  <% @order.items.each do |item| %>
+  <li><%= item.product.title %> - <%= number_to_currency item.price %></li>
+  <% end %>
+</ul>
+<h2>Subtotal <%= number_to_currency @order.sub_total %></h2>
+<h2>Tax <%= number_to_currency @order.tax %></h2>
+<h2>Amount paid <%= number_to_currency @order.total %> IN FULL</h2>
+<br>
+<br>
+
