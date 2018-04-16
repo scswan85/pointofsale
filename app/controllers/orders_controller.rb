@@ -43,6 +43,14 @@ class OrdersController < ApplicationController
     redirect_to payment_orders_path
   end
 
+  def cancel
+    @order = Order.find_by_id(params[:id])
+    @order.update_attributes(status: :cancelled)
+    respond_to do |format|
+      format.html { redirect_to root_path, notice:'Order cancelled'}
+    end
+  end
+
   def payment
     @orders = Order.where(status: :payment)
     render action: :payment

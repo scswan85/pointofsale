@@ -12,6 +12,7 @@ setInterval(function(){
         <div class="card-header">
           Order #<%= order.id %> Table (<%= order.table %>) 
           <%= distance_of_time_in_words(order.updated_at, Time.now) %> ago
+          <%= link_to (fa_icon "times-circle"), cancel_order_path(order), data: { confirm: "Are you sure you want to CANCEL the order?" } ,method: :put, class:'text-danger' %>
         </div>
             <% order.items.each do |item| %>
           <ul class="list-group list-group-flush">
