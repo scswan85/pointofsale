@@ -12,18 +12,16 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_cart.order
-
     respond_to do |format|
       if @order.total > 0
         session[:cart_token] = nil
-        @order.update_attributes(status: :open)
+        @order.update_attributes(order_params.merge(status: :open))
         format.html { redirect_to root_path, notice: 'Order successfully submitted' } 
       else
         format.html { redirect_to root_path, notice: 'Cannot submit empty orders' }
       end
     end
-
-
+    
   end
 
   def open
