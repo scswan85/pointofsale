@@ -12,11 +12,14 @@ setInterval(function(){
         <div class="card-header navbar text-white">
           <div class="float-left">
             <h6>
-              Order #<%= order.id %> Table (<%= order.table %>) 
+              Order #<%= order.id %> 
             </h6>
           </div>
+          <div class="float-center">
+            <h6>Table <%= order.table %></h6>
+          </div>
           <div class="float-right">
-              <%= link_to (fa_icon "times-circle"), cancel_order_path(order), data: { confirm: "Are you sure you want to CANCEL the order?" } ,method: :put, class:'text-white' %>
+            <%= link_to (fa_icon "times-circle"), cancel_order_path(order), data: { confirm: "Are you sure you want to CANCEL the order?" } ,method: :put, class:'text-white' %>
           </div>
         </div>
             <% order.items.each do |item| %>
