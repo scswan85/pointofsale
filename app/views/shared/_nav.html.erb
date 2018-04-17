@@ -7,7 +7,7 @@
   </ul>
   <ul class="navbar-nav my-2">
     <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-danger" if logged_in?(:user, :site_admin) %></li>
-    <li class="nav-item"><%= link_to (fa_icon "shopping-bag 2x"), cart_path, class:"nav-link" %></li>
-    <li class="nav-item"><%= link_to current_cart.items_count, cart_path, class: "nav-link" %></li>
+    <li class="nav-item"><%= link_to (fa_icon "shopping-cart 2x"), cart_path, class:"nav-link" %></li>
+    <li class="nav-item"><h5><%= link_to current_cart.items_count, cart_path, class: "badge badge-pill badge-secondary" %></h5></li>
   </ul>
 </nav>
