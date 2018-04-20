@@ -5,13 +5,17 @@ class OrderItemsController < ApplicationController
   end
   
   def create
-    current_cart.add_item(
-      product_id: params[:product_id],
-      quantity: params[:quantity].to_i >= 0 ? params[:quantity] : params[:quantity] = nil
-    )
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Shopping cart successfully updated' }
+      if params[:quantity].to_i >0
+        current_cart.add_item(
+          product_id: params[:product_id],
+          quantity: params[:quantity]    
+        )
+        format.html { redirect_to root_path, notice: 'Shopping cart successfully updated' }
+      else
+        format.html { redirect_to root_path, notice: 'Zero and negative values not allowed' }
+      end
     end
   end
 
