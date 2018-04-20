@@ -7,7 +7,7 @@ class OrderItemsController < ApplicationController
   def create
     current_cart.add_item(
       product_id: params[:product_id],
-      quantity: params[:quantity].to_i >= 0 ? params[:quantity] : params[:quantity] = 1
+      quantity: params[:quantity].to_i >= 0 ? params[:quantity] : params[:quantity] = nil
     )
 
     respond_to do |format|
