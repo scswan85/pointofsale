@@ -23,7 +23,7 @@
           <td>
             <%= form_tag order_items_path do %>
               <%= hidden_field_tag :product_id, product.id %>
-              <%= number_field_tag :quantity, 1, in:0..20, class:"form-control input-lg col-6" %>
+              <%= number_field_tag :quantity, 1, in: 0..20, class:"form-control input-lg col-6" %>
               <%= submit_tag "Add to Order", class: "btn btn-success" %>
             <% end %>
           </td>
