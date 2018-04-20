@@ -21,10 +21,6 @@ class ChargesController < ApplicationController
     :receipt_email => params[:stripeEmail]
   )
   
-  #respond_to do |format|
-  #  format.html { redirect_to payment_orders_path, notice: 'Payment successful'}
-  #end
-
   rescue Stripe::CardError => e
     flash[:error] = e.message
   end

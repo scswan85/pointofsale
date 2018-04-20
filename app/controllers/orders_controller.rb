@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
         format.html { redirect_to root_path, notice: 'Cannot submit empty orders' }
       end
     end
-    
   end
 
   def open

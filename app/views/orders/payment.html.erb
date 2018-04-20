@@ -1,12 +1,13 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1>Ready for payment</h1>
 
-<p id="notice"><%= notice %></p>
-<h1>Ready for payment</h1>
-
-<ul>
+  <ul>
     <% @orders.each do |order| %>
     <li>
       <%= order.id %> Table(<%= order.table %>) - <%= number_to_currency order.total %>
       <%= link_to 'Submit Payment', order, class: "btn btn-outline-primary btn-sm" %> <%= link_to (fa_icon "credit-card"), order %>
     </li>
     <% end %>
-</ul>
+  </ul>
+</div>
