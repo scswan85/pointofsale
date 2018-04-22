@@ -5,20 +5,15 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.3.0
 
-* System dependencies
+* Rails version 5.1.6
 
-* Configuration
+* Database creation `rails db:create`
 
-* Database creation
+* Database initialization `rails db:migrate`
 
-* Database initialization
+* You can run this locally with the PostgreSQL database or visit the live demo at http://luvpointofsale.herokuapp.com
+  -Click the footer and utilize the staff(user) login of `test@test.com` password: `password`
+  -Or the admin account to add or edit menu items `admintest@test.com` password: `password`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
